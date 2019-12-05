@@ -7,7 +7,7 @@ def name_misspeller
     name_array.each do |character|
       is_consonant = true
       vowels.each do |vowel|
-        if character == vowel
+        if character.downcase == vowel
           wrong_name_array << vowels.sample
           is_consonant = false
         end
@@ -16,9 +16,10 @@ def name_misspeller
         wrong_name_array << character
       end
     end
-    wrong_name_array.join
+    wrong_name_array.join.capitalize
   wrong_name = wrong_name_array.join.capitalize
   puts "Nice to meet you, #{wrong_name}"
 end
 
 name_misspeller
+
